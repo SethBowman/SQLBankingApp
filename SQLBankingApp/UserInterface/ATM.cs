@@ -21,7 +21,8 @@ namespace SQLBankingApp.UserInterface
                 Console.WriteLine("\nPlease select an option:");
                 Console.WriteLine("1. Deposit money");
                 Console.WriteLine("2. Check balance");
-                Console.WriteLine("3. Exit");
+                Console.WriteLine("3. Withdraw money");
+                Console.WriteLine("4. Exit");
 
                 int option;
                 if (!int.TryParse(Console.ReadLine(), out option))
@@ -47,7 +48,19 @@ namespace SQLBankingApp.UserInterface
                     case 2:
                         Console.WriteLine($"\nCurrent balance: {account.CheckBalance():C}");
                         break;
-                    case 3:
+                    case 3:                 
+                        Console.WriteLine("\nEnter the amount to withdraw:");
+                        double withdrawAmount;
+                        if (!double.TryParse(Console.ReadLine(), out withdrawAmount))
+                        {
+                            Console.WriteLine("\nInvalid input. Please enter a valid amount.");
+                            continue;
+                        }
+
+                        account.Withdraw(withdrawAmount);
+                        Console.WriteLine("\nWithdraw successful!");
+                        break;
+                    case 4:
                         Console.WriteLine("\n\nThank you for using Bowman Banking App!");
                         return false;
                     default:

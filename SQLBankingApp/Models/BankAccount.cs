@@ -31,16 +31,16 @@ namespace SQLBankingApp.Models
             Balance += amount;
         }
 
-        public bool Withdraw(double amount)
+        public void Withdraw(double amount)
         {
-            if (Balance >= amount)
+            if(Balance >= amount)
             {
-                Balance -= amount;
-                return true;
+                Balance -= amount;                
             }
             else
             {
-                return false;
+                Console.WriteLine("\nInvalid option.\nYour balance is less than the specified amount.");
+                return;
             }
         }
 
