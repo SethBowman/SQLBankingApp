@@ -75,7 +75,7 @@ namespace SQLBankingApp.UserInterface
 
                 if (account != null && account.VerifyPassword(password))
                 {
-                    cont = ATM.ATMInterface(account);
+                    cont = ATMInterface(account);
                 }
                 else
                 {

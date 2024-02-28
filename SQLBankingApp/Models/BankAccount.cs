@@ -8,7 +8,6 @@ namespace SQLBankingApp.Models
 {
     public class BankAccount
     {
-
         public string AccountNumber { get; private set; }
         public string Name { get; private set; }
         private double Balance { get; set; }
@@ -27,12 +26,10 @@ namespace SQLBankingApp.Models
             Password = password;
         }
 
-
         public void Deposit(double amount)
         {
             Balance += amount;
         }
-
 
         public bool Withdraw(double amount)
         {
@@ -46,7 +43,6 @@ namespace SQLBankingApp.Models
                 return false;
             }
         }
-
 
         public double CheckBalance()
         {
