@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
+using SQLBankingApp.SecureFiles;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,7 +15,7 @@ namespace SQLBankingApp.DataAccess
         public static IDbConnection JSONConfig()
         {
             var config = new ConfigurationBuilder()                
-                .AddJsonFile(@"C:\Users\sbowm\OneDrive\Desktop\repos\SQLBankingApp\SQLBankingApp\SecureFiles\appsettings.json")
+                .AddJsonFile(FilePath._jsonPath)
                 .Build();
             string connString = config.GetConnectionString("DefaultConnection");
             return new MySqlConnection(connString);
