@@ -9,10 +9,10 @@ namespace SQLBankingApp.UserInterface
 {
     public static class ATM
     {
-        public static void ATMInterface(BankAccount account)
+        public static bool ATMInterface(BankAccount account)
         {
-            Console.WriteLine("Welcome to Bowman Banking App!");
-            Console.WriteLine("==============================");
+            Console.WriteLine("\n\nWelcome to Bowman Banking App!");
+            Console.WriteLine("==============================\n");
 
             while (true)
             {
@@ -24,32 +24,32 @@ namespace SQLBankingApp.UserInterface
                 int option;
                 if (!int.TryParse(Console.ReadLine(), out option))
                 {
-                    Console.WriteLine("Invalid input. Please enter a valid option.");
+                    Console.WriteLine("\nInvalid input. Please enter a valid option.");
                     continue;
                 }
 
                 switch (option)
                 {
                     case 1:
-                        Console.WriteLine("Enter the amount to deposit:");
+                        Console.WriteLine("\nEnter the amount to deposit:");
                         double depositAmount;
                         if (!double.TryParse(Console.ReadLine(), out depositAmount))
                         {
-                            Console.WriteLine("Invalid input. Please enter a valid amount.");
+                            Console.WriteLine("\nInvalid input. Please enter a valid amount.");
                             continue;
                         }
 
                         account.Deposit(depositAmount);
-                        Console.WriteLine("Deposit successful!");
+                        Console.WriteLine("\nDeposit successful!");
                         break;
                     case 2:
-                        Console.WriteLine($"Current balance: {account.CheckBalance():C}");
+                        Console.WriteLine($"\nCurrent balance: {account.CheckBalance():C}");
                         break;
                     case 3:
-                        Console.WriteLine("Thank you for using Bowman Banking App!");
-                        return;
+                        Console.WriteLine("\n\nThank you for using Bowman Banking App!");
+                        return false;
                     default:
-                        Console.WriteLine("Invalid option. Please enter a valid option.");
+                        Console.WriteLine("\nInvalid option. Please enter a valid option.");
                         break;
                 }
             }

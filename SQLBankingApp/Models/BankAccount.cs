@@ -53,5 +53,9 @@ namespace SQLBankingApp.Models
             return Balance;
         }
 
+        public bool VerifyPassword(string inputPassword)
+        {
+            return Password == inputPassword;
+        }
     }
 }
